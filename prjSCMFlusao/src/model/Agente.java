@@ -1,24 +1,24 @@
 package model;
 
-public class Produto {
+public class Agente {
 
     // ATRIBUTOS
 
     private String id;
     private String nome;
+    private EmpresaParceira empresaParceira;
     private String situacao;
-    private double preco;
 
     // MÉTODOS PADRÃO
 
-    public Produto(String id, String nome, double preco) {
+    public Agente(String id, String nome, EmpresaParceira empresaParceira, String situacao) {
         this.setId(id);
         this.setNome(nome);
-        this.situacao = "Análise";
-        this.setPreco(preco);
+        this.setEmpresaParceira(empresaParceira);
+        this.setSituacao(situacao);
     }
-    
-    // public Produto(?) { }
+
+    // public Agente(?) { }
 
     private void setId(String id) {
         this.validarId(id);
@@ -38,6 +38,15 @@ public class Produto {
         return this.nome;
     }
 
+    private void setEmpresaParceira(EmpresaParceira empresaParceira) {
+        this.validarEmpresaParceira(empresaParceira);
+        this.empresaParceira = empresaParceira;
+    }
+
+    private EmpresaParceira getEmpresaParceira() {
+        return this.empresaParceira;
+    }
+
     private void setSituacao(String situacao) {
         this.validarSituacao(situacao);
         this.situacao = situacao;
@@ -47,36 +56,8 @@ public class Produto {
         return this.situacao;
     }
 
-    private void setPreco(double preco) {
-        this.validarPreco(preco);
-        this.preco = preco;
-    }
-
-    private double getPreco() {
-        return this.preco;
-    }
-
     // MÉTODOS DOS DIAGRAMAS (D.E e D.S)
 
-    public void reprovar() {
-        this.situacao = "Reprovado";
-    }
-
-    public void aprovar() {
-        this.situacao = "Disponível para venda";
-    }
-
-    public void vender() {
-        this.situacao = "Vendido";
-    }
-
-    public void transportar() {
-        this.situacao = "Em trânsito";
-    }
-
-    public void receber() {
-        this.situacao = "Recebido";
-    }
 
     // MÉTODOS DE VALIDAÇÃO
 
@@ -88,11 +69,11 @@ public class Produto {
 
     }
 
-    private void validarSituacao(String situacao) {
+    private void validarEmpresaParceira(EmpresaParceira empresaParceira) {
 
     }
 
-    private void validarPreco(double preco) {
+    private void validarSituacao(String situacao) {
 
     }
 

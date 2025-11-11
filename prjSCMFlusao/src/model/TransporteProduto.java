@@ -1,6 +1,8 @@
 package model;
 
 import java.util.Date;
+import model.Armazem;
+import model.Produto;
 
 public class TransporteProduto {
 
@@ -11,68 +13,118 @@ public class TransporteProduto {
     private Date dtSaida;
     private Date dtChegada;
     private double frete;
+    private Produto produto;
+    private Armazem armazemOrigem;
+    private Armazem armazemDestino;
 
     // MÉTODOS PADRÃO
 
-    public TransporteProduto(String id, String situacao, Date dtSaida, Date dtChegada, double frete) {
+    public TransporteProduto(String id, Date dtSaida, Date dtChegada, double frete, Produto produto, Armazem armazemOrigem, Armazem armazemDestino) {
         this.setId(id);
-        this.setSituacao(situacao);
+        this.situacao = "Ativo";
         this.setDtSaida(dtSaida);
         this.setDtChegada(dtChegada);
         this.setFrete(frete);
+        this.setProduto(produto);
+        this.setArmazemOrigem(armazemOrigem);
+        this.setArmazemDestino(armazemDestino);
     }
 
     // public TransporteProduto(?) { }
 
-    private void setId(String id) {
+    public void setId(String id) {
         this.validarId(id);
         this.id = id;
     }
 
-    private String getId() {
+    public String getId() {
         return this.id;
     }
 
-    private void setSituacao(String situacao) {
+    public void setSituacao(String situacao) {
         this.validarSituacao(situacao);
         this.situacao = situacao;
     }
 
-    private String getSituacao() {
+    public String getSituacao() {
         return this.situacao;
     }
 
-    private void setDtSaida(Date dtSaida) {
+    public void setDtSaida(Date dtSaida) {
         this.validarDtSaida(dtSaida);
         this.dtSaida = dtSaida;
     }
 
-    private Date getDtSaida() {
+    public Date getDtSaida() {
         return this.dtSaida;
     }
 
-    private void setDtChegada(Date dtChegada) {
+    public void setDtChegada(Date dtChegada) {
         this.validarDtChegada(dtChegada);
         this.dtChegada = dtChegada;
     }
 
-    private Date getDtChegada() {
+    public Date getDtChegada() {
         return this.dtChegada;
     }
 
-    private void setFrete(double frete) {
+    public void setFrete(double frete) {
         this.validarFrete(frete);
         this.frete = frete;
     }
 
-    private double getFrete() {
+    public double getFrete() {
         return this.frete;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Produto getProduto() {
+        return this.produto;
+    }
+
+    public void setArmazemDestino(Armazem armDes) {
+        this.armazemDestino= armDes;
+    }
+
+    public Armazem getArmazemDestino() {
+        return this.armazemDestino;
+    }
+
+    public void setArmazemDestino(Armazem armOri) {
+        this.armazemOrigem = armOri;
+    }
+
+    public Armazem getArmazemOrigem() {
+        return this.armazemOrigem;
     }
 
     // MÉTODOS DOS DIAGRAMAS (D.E e D.S)
 
+    public void embarcar() {
+        this.situacao = "Embarcado";
+    }
 
-    // MÉTODOS DE VALIDAÇÃO
+    public void movimentar() {
+        this.situacao = "Em trânsito";
+    }
+
+    public void interromper() {
+        this.situacao = "Suspenso";
+    }
+
+    public void retornarTransito() {
+        this.movimentar();
+    }
+
+    public void chegarDestino() {
+        this.situacao = "Finalizado";
+    }
+
+
+    /* MÉTODOS DE VALIDAÇÃO
 
     private void validarId(String id) {
 
@@ -93,5 +145,7 @@ public class TransporteProduto {
     private void validarFrete(double frete) {
 
     }
+
+    */
 
 }
