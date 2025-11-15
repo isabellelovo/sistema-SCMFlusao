@@ -32,8 +32,7 @@ public class TransporteProduto {
 
     // public TransporteProduto(?) { }
 
-    public void setId(String id) {
-        this.validarId(id);
+	public void setId(String id) {
         this.id = id;
     }
 
@@ -42,7 +41,6 @@ public class TransporteProduto {
     }
 
     public void setSituacao(String situacao) {
-        this.validarSituacao(situacao);
         this.situacao = situacao;
     }
 
@@ -51,7 +49,6 @@ public class TransporteProduto {
     }
 
     public void setDtSaida(Date dtSaida) {
-        this.validarDtSaida(dtSaida);
         this.dtSaida = dtSaida;
     }
 
@@ -60,7 +57,6 @@ public class TransporteProduto {
     }
 
     public void setDtChegada(Date dtChegada) {
-        this.validarDtChegada(dtChegada);
         this.dtChegada = dtChegada;
     }
 
@@ -69,7 +65,6 @@ public class TransporteProduto {
     }
 
     public void setFrete(double frete) {
-        this.validarFrete(frete);
         this.frete = frete;
     }
 
@@ -85,25 +80,25 @@ public class TransporteProduto {
         return this.produto;
     }
 
-    public void setArmazemDestino(Armazem armDes) {
-        this.armazemDestino= armDes;
-    }
-
-    public Armazem getArmazemDestino() {
-        return this.armazemDestino;
-    }
-
-    public void setArmazemDestino(Armazem armOri) {
-        this.armazemOrigem = armOri;
-    }
-
     public Armazem getArmazemOrigem() {
-        return this.armazemOrigem;
-    }
+		return armazemOrigem;
+	}
+
+	public void setArmazemOrigem(Armazem armazemOrigem) {
+		this.armazemOrigem = armazemOrigem;
+	}
+
+	public Armazem getArmazemDestino() {
+		return armazemDestino;
+	}
+
+	public void setArmazemDestino(Armazem armazemDestino) {
+		this.armazemDestino = armazemDestino;
+	}
 
     // MÉTODOS DOS DIAGRAMAS (D.E e D.S)
 
-    public void embarcar() {
+	public void embarcar() {
         this.situacao = "Embarcado";
     }
 
