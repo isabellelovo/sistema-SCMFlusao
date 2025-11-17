@@ -4,33 +4,31 @@ public class Produto {
 
     // ATRIBUTOS
 
-    private String id;
+    private int id;
     private String nome;
     private String situacao;
     private double preco;
 
     // MÉTODOS PADRÃO
 
-    public Produto(String id, String nome, double preco) {
+    public Produto(int id, String nome, double preco) {
         this.setId(id);
         this.setNome(nome);
         this.situacao = "Análise";
         this.setPreco(preco);
     }
     
-    // public Produto(?) { }
+    // M. CONSTRUTOR SOBRECARGA: public Produto(?) { }
 
-    private void setId(String id) {
-        this.validarId(id);
+    private void setId(int id) {
         this.id = id;
     }
 
-    private String getId() {
+    private int getId() {
         return this.id;
     }
 
     private void setNome(String nome) {
-        this.validarNome(nome);
         this.nome = nome;
     }
 
@@ -39,7 +37,6 @@ public class Produto {
     }
 
     private void setSituacao(String situacao) {
-        this.validarSituacao(situacao);
         this.situacao = situacao;
     }
 
@@ -48,7 +45,6 @@ public class Produto {
     }
 
     private void setPreco(double preco) {
-        this.validarPreco(preco);
         this.preco = preco;
     }
 
@@ -59,41 +55,14 @@ public class Produto {
     // MÉTODOS DOS DIAGRAMAS (D.E e D.S)
 
     public void reprovar() {
-        this.situacao = "Reprovado";
+        this.setSituacao("Reprovado");
     }
 
     public void aprovar() {
-        this.situacao = "Disponível para venda";
+        this.setSituacao("Disponível");
     }
 
     public void vender() {
-        this.situacao = "Vendido";
+        this.setSituacao("Vendido");
     }
-
-    public void transportar() {
-        this.situacao = "Em trânsito";
-    }
-
-    public void receber() {
-        this.situacao = "Recebido";
-    }
-
-    // MÉTODOS DE VALIDAÇÃO
-
-    private void validarId(String id) {
-
-    }
-
-    private void validarNome(String nome) {
-
-    }
-
-    private void validarSituacao(String situacao) {
-
-    }
-
-    private void validarPreco(double preco) {
-
-    }
-
 }
