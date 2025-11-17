@@ -1,7 +1,5 @@
 package model;
 
-// Definir atr. de relacionamento
-
 public class ItemProduto {
 	private int id;
 	private String nome;

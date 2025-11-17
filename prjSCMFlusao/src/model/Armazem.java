@@ -63,11 +63,7 @@ public class Armazem {
 		Armazem.numElementos++;
 	}
 
-	public static Armazem selecionarArmazemOrigem(int escolha) {
-		return Armazem.arrayArmazens[escolha-1];
-	}
-
-	public static Armazem selecionarArmazemDestino(int escolha) {
+	public static Armazem selecionarArmazem(int escolha) {
 		return Armazem.arrayArmazens[escolha-1];
 	}
 }
