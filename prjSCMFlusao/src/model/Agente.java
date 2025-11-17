@@ -1,36 +1,31 @@
 package model;
 
 public class Agente {
-
-    // ATRIBUTOS
-
-    private String id;
+    private int id;
     private String nome;
-    private EmpresaParceira empresaParceira;
+    private EmpresaParceira empresa;
     private String situacao;
 
-    // MÉTODOS PADRÃO
+    private static Agente[] arrayAgentes = new Agente[5];
+	private static int numElementos = 0;
 
-    public Agente(String id, String nome, EmpresaParceira empresaParceira, String situacao) {
+    public Agente(int id, String nome, EmpresaParceira empresa) {
         this.setId(id);
         this.setNome(nome);
-        this.setEmpresaParceira(empresaParceira);
-        this.setSituacao(situacao);
+        this.setEmpresa(empresa);
+        this.setSituacao("Análise");
+        this.guardarAgente(this);
     }
 
-    // public Agente(?) { }
-
-    private void setId(String id) {
-        this.validarId(id);
+    private void setId(int id) {
         this.id = id;
     }
 
-    private String getId() {
+    private int getId() {
         return this.id;
     }
 
     private void setNome(String nome) {
-        this.validarNome(nome);
         this.nome = nome;
     }
 
@@ -38,17 +33,15 @@ public class Agente {
         return this.nome;
     }
 
-    private void setEmpresaParceira(EmpresaParceira empresaParceira) {
-        this.validarEmpresaParceira(empresaParceira);
-        this.empresaParceira = empresaParceira;
+    private void setEmpresa(EmpresaParceira empresa) {
+        this.empresa = empresa;
     }
 
-    private EmpresaParceira getEmpresaParceira() {
-        return this.empresaParceira;
+    private EmpresaParceira getEmpresa() {
+        return this.empresa;
     }
 
     private void setSituacao(String situacao) {
-        this.validarSituacao(situacao);
         this.situacao = situacao;
     }
 
@@ -56,25 +49,33 @@ public class Agente {
         return this.situacao;
     }
 
-    // MÉTODOS DOS DIAGRAMAS (D.E e D.S)
+    public static void guardarAgente(Agente AgenteNovo) {
+		Agente.arrayAgentes[Agente.numElementos] = AgenteNovo;
+		Agente.numElementos++;
+	}
 
+	public static Agente selecionarAgente(int escolha) {
+		return Agente.arrayAgentes[escolha-1];
+	}
 
-    // MÉTODOS DE VALIDAÇÃO
-
-    private void validarId(String id) {
-
+    public void reprovar() {
+        this.setSituacao("Reprovado");
     }
 
-    private void validarNome(String nome) {
-
+    public void aprovar() {
+        this.setSituacao("Disponível");
     }
 
-    private void validarEmpresaParceira(EmpresaParceira empresaParceira) {
-
+    public void receberDemanda() {
+        this.setSituacao("Responsável por Transporte");
     }
 
-    private void validarSituacao(String situacao) {
+    public void finalizarDemanda() {
+        this.setSituacao("Transporte Finalizado");
+    }
 
+    public void disponibilizar() {
+        this.aprovar();
     }
 
 }

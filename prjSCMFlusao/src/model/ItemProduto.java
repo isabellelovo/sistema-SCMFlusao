@@ -1,12 +1,23 @@
 package model;
 
+// Definir atr. de relacionamento
+
 public class ItemProduto {
 	private int id;
 	private String nome;
 	private String situacao;
 	private double preco;
+
+	private static ItemProduto[] arrayItens = new ItemProduto[5];
+	private static int numElementos = 0;
 	
-	
+	public ItemProduto(int id, String nome, String situacao, double preco){
+		this.setId(id);
+		this.setNome(nome);
+		this.setSituacao(situacao);
+		this.setPreco(preco);
+		ItemProduto.guardarItem(this);
+	}
 	
 	public int getId() {
 		return id;
@@ -31,5 +42,14 @@ public class ItemProduto {
 	}
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+
+	public static void guardarItem(ItemProduto itemNovo) {
+		ItemProduto.arrayItens[ItemProduto.numElementos] = itemNovo;
+		ItemProduto.numElementos++;
+	}
+
+	public static ItemProduto selecionarItem(int escolha) {
+		return ItemProduto.arrayItens[escolha-1];
 	}
 }

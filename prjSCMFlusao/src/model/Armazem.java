@@ -5,8 +5,21 @@ public class Armazem {
     private String cep;
     private String logradouro;
     private int numero;
+	private Cidade cidade;
     private String telefone;
+
+	private static Armazem[] arrayArmazens = new Armazem[5];
+	private static int numElementos = 0;
     
+	public Armazem(int id, String cep, String logradouro, int numero, Cidade cidade, String telefone){
+		this.setId(id);
+		this.setCep(cep);
+		this.setLogradouro(logradouro);
+		this.setNumero(numero);
+		this.setCidade(cidade);
+		this.setTelefone(telefone);
+		Armazem.guardarArmazem(this);
+	}
     
 	public int getId() {
 		return id;
@@ -32,10 +45,29 @@ public class Armazem {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	public Cidade getCidade() {
+		return this.cidade;
+	}
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
 	public String getTelefone() {
 		return telefone;
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public static void guardarArmazem(Armazem armazemNovo) {
+		Armazem.arrayArmazens[Armazem.numElementos] = armazemNovo;
+		Armazem.numElementos++;
+	}
+
+	public static Armazem selecionarArmazemOrigem(int escolha) {
+		return Armazem.arrayArmazens[escolha-1];
+	}
+
+	public static Armazem selecionarArmazemDestino(int escolha) {
+		return Armazem.arrayArmazens[escolha-1];
 	}
 }

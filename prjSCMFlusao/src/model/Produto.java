@@ -1,24 +1,23 @@
 package model;
 
+// Definir atr. de relacionamento
+
 public class Produto {
-
-    // ATRIBUTOS
-
     private int id;
     private String nome;
     private String situacao;
     private double preco;
 
-    // MÉTODOS PADRÃO
+    private static Produto[] arrayProdutos = new Produto[5];
+	private static int numElementos = 0;
 
     public Produto(int id, String nome, double preco) {
         this.setId(id);
         this.setNome(nome);
-        this.situacao = "Análise";
+        this.setSituacao("Análise");
         this.setPreco(preco);
+        Produto.guardarProduto(this);
     }
-    
-    // M. CONSTRUTOR SOBRECARGA: public Produto(?) { }
 
     private void setId(int id) {
         this.id = id;
@@ -52,7 +51,14 @@ public class Produto {
         return this.preco;
     }
 
-    // MÉTODOS DOS DIAGRAMAS (D.E e D.S)
+    public static void guardarProduto(Produto prodNovo) {
+		Produto.arrayProdutos[Produto.numElementos] = prodNovo;
+		Produto.numElementos++;
+	}
+
+	public static Produto selecionarProduto(int escolha) {
+		return Produto.arrayProdutos[escolha-1];
+	}
 
     public void reprovar() {
         this.setSituacao("Reprovado");
