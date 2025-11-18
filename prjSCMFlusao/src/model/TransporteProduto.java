@@ -1,5 +1,3 @@
-// Definir atr. de relacionamento (Produto, Item ou Pedido)
-
 package model;
 
 import java.util.Date;
