@@ -3,16 +3,14 @@ package model;
 public class ItemProduto {
 	private int id;
 	private String nome;
-	private String situacao;
 	private double preco;
 
 	private static ItemProduto[] arrayItens = new ItemProduto[5];
 	private static int numElementos = 0;
 	
-	public ItemProduto(int id, String nome, String situacao, double preco){
+	public ItemProduto(int id, String nome, double preco){
 		this.setId(id);
 		this.setNome(nome);
-		this.setSituacao(situacao);
 		this.setPreco(preco);
 		ItemProduto.guardarItem(this);
 	}
@@ -28,12 +26,6 @@ public class ItemProduto {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getSituacao() {
-		return situacao;
-	}
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
 	}
 	public double getPreco() {
 		return preco;
