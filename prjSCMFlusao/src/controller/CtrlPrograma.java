@@ -1,10 +1,15 @@
 package controller;
 
-import model.Pais;
-import model.Cidade;
+import java.util.Date;
+
+import model.Agente;
 import model.Armazem;
+import model.Cidade;
+import model.EmpresaParceira;
 import model.ItemProduto;
+import model.Pais;
 import model.Produto;
+import model.TransporteProduto;
 
 public class CtrlPrograma {
     public static void main(String[] args) {
@@ -24,12 +29,30 @@ public class CtrlPrograma {
         ItemProduto item4 = new ItemProduto(23, "SSD", 260.00);
         ItemProduto item5 = new ItemProduto(24, "Fonte de alimentação", 190.00);
 
-        ItemProduto[] itensEscolhidos = new ItemProduto[5];
-        for (int i=0; i < itensEscolhidos.length; i++){
-            itensEscolhidos[i] = ItemProduto.selecionarItem(i+1);
+        ItemProduto[] itensEscolhidos1 = new ItemProduto[5];
+        for (int i=0; i < itensEscolhidos1.length; i++){
+            itensEscolhidos1[i] = ItemProduto.selecionarItem(i+1);
+        }
+        
+        ItemProduto[] itensEscolhidos2 = new ItemProduto[3];
+        for (int i=0; i < itensEscolhidos2.length; i++){
+            itensEscolhidos2[i] = ItemProduto.selecionarItem(i+1);
         }
 
-        Produto produto1 = new Produto(31, "Computador Desktop", 1899.99, itensEscolhidos);
+        Produto produto1 = new Produto(31, "Computador Desktop", 1899.99, itensEscolhidos1);
+        Produto produto2 = new Produto(32, "Terminal de Consulta", 1899.99, itensEscolhidos2);
+        
+        EmpresaParceira emp1 = new EmpresaParceira("100", "LogiTrans");
+        EmpresaParceira emp2 = new EmpresaParceira("101", "CargaExpress");
+        EmpresaParceira emp3 = new EmpresaParceira("102", "NorthCargo");
+        
+        Agente agente1 = new Agente(100, "Carlos Andrade", emp1);
+        Agente agente2 = new Agente(101, "João Pereira", emp1);
+        Agente agente3 = new Agente(102, "Maria Silva", emp2);
+        Agente agente4 = new Agente(103, "Emily Thompson", emp3);
 
+        TransporteProduto transporte1 = new TransporteProduto(41, new Date(), new Date(), 150.00, agente1, armazem1, armazem2);
+        TransporteProduto transporte2 = new TransporteProduto(42, new Date(), new Date(), 200.00, agente2, armazem2, armazem1);
+        
     }
 }
