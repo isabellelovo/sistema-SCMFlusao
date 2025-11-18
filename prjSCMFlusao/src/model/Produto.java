@@ -19,43 +19,43 @@ public class Produto {
         Produto.guardarProduto(this);
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private int getId() {
+    public int getId() {
         return this.id;
     }
 
-    private void setNome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    private String getNome() {
+    public String getNome() {
         return this.nome;
     }
 
-    private void setSituacao(String situacao) {
+    public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
 
-    private String getSituacao() {
+    public String getSituacao() {
         return this.situacao;
     }
 
-    private void setPreco(double preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
-    private double getPreco() {
+    public double getPreco() {
         return this.preco;
     }
 
-    private void setArrayItens(ItemProduto[] arrayItens) {
+    public void setArrayItens(ItemProduto[] arrayItens) {
         this.arrayItens = arrayItens;
     }
 
-    private ItemProduto[] getArrayItens() {
+    public ItemProduto[] getArrayItens() {
         return this.arrayItens;
     }
 

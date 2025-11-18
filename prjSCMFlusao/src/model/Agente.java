@@ -17,35 +17,35 @@ public class Agente {
         this.guardarAgente(this);
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private int getId() {
+    public int getId() {
         return this.id;
     }
 
-    private void setNome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    private String getNome() {
+    public String getNome() {
         return this.nome;
     }
 
-    private void setEmpresa(EmpresaParceira empresa) {
+    public void setEmpresa(EmpresaParceira empresa) {
         this.empresa = empresa;
     }
 
-    private EmpresaParceira getEmpresa() {
+    public EmpresaParceira getEmpresa() {
         return this.empresa;
     }
 
-    private void setSituacao(String situacao) {
+    public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
 
-    private String getSituacao() {
+    public String getSituacao() {
         return this.situacao;
     }
 

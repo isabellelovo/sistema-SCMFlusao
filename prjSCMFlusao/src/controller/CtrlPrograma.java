@@ -10,6 +10,7 @@ import model.ItemProduto;
 import model.Pais;
 import model.Produto;
 import model.TransporteProduto;
+import view.Terminal;
 
 public class CtrlPrograma {
     public static void main(String[] args) {
@@ -54,5 +55,11 @@ public class CtrlPrograma {
         TransporteProduto transporte1 = new TransporteProduto(41, new Date(), new Date(), 150.00, agente1, armazem1, armazem2);
         TransporteProduto transporte2 = new TransporteProduto(42, new Date(), new Date(), 200.00, agente2, armazem2, armazem1);
         
+        Terminal viewer = new Terminal();
+        viewer.iniciar();
+        viewer.mostrarProduto(produto1);
+        viewer.mostrarProduto(produto2);
+        viewer.mostrarTransporte(transporte1);
+        viewer.mostrarTransporte(transporte2);
     }
 }
