@@ -13,8 +13,9 @@ public class TransporteProduto {
     private Agente agente;
     private Armazem armazemOrigem;
     private Armazem armazemDestino;
+    private Produto produto;
 
-    public TransporteProduto(int id, Date dtSaida, Date dtChegada, double frete, Agente agente, Armazem armazemOrigem, Armazem armazemDestino) {
+    public TransporteProduto(int id, Date dtSaida, Date dtChegada, double frete, Agente agente, Armazem armazemOrigem, Armazem armazemDestino, Produto produto) {
         this.setId(id);
         this.setSituacao("Ativo");
         this.setDtSaida(dtSaida);
@@ -23,6 +24,7 @@ public class TransporteProduto {
         this.setAgente(agente);
         this.setArmazemOrigem(armazemOrigem);
         this.setArmazemDestino(armazemDestino);
+        this.setProduto(produto);
     }
 
 	public void setId(int id) {
@@ -88,6 +90,14 @@ public class TransporteProduto {
 	public void setArmazemDestino(Armazem armazemDestino) {
 		this.armazemDestino = armazemDestino;
 	}
+
+    public Produto getProduto() {
+        return this.produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
 
 	public void embarcar() {
         this.setSituacao("Embarcado");

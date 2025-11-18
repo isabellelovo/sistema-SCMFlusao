@@ -41,7 +41,7 @@ public class CtrlPrograma {
         }
 
         Produto produto1 = new Produto(31, "Computador Desktop", 1899.99, itensEscolhidos1);
-        Produto produto2 = new Produto(32, "Terminal de Consulta", 1899.99, itensEscolhidos2);
+        Produto produto2 = new Produto(32, "Terminal de Consulta", 1299.99, itensEscolhidos2);
         
         EmpresaParceira emp1 = new EmpresaParceira("100", "LogiTrans");
         EmpresaParceira emp2 = new EmpresaParceira("101", "CargaExpress");
@@ -52,8 +52,8 @@ public class CtrlPrograma {
         Agente agente3 = new Agente(102, "Maria Silva", emp2);
         Agente agente4 = new Agente(103, "Emily Thompson", emp3);
 
-        TransporteProduto transporte1 = new TransporteProduto(41, new Date(), new Date(), 150.00, agente1, armazem1, armazem2);
-        TransporteProduto transporte2 = new TransporteProduto(42, new Date(), new Date(), 200.00, agente2, armazem2, armazem1);
+        TransporteProduto transporte1 = new TransporteProduto(41, new Date(), new Date(), 150.00, agente1, armazem1, armazem2, produto1);
+        TransporteProduto transporte2 = new TransporteProduto(42, new Date(), new Date(), 200.00, agente2, armazem2, armazem1, produto2);
         
         Terminal viewer = new Terminal();
         viewer.iniciar();

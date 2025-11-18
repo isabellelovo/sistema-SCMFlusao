@@ -25,6 +25,7 @@ public class Terminal {
         
         System.out.println("Origem: Armazém " + t.getArmazemOrigem().getId() + " - " + t.getArmazemOrigem().getCidade().getNome());
         System.out.println("Destino: Armazém " + t.getArmazemDestino().getId() + " - " + t.getArmazemDestino().getCidade().getNome());
+        System.out.println("Produto: " + t.getProduto().getId() + " - " + t.getProduto().getNome());
     }
 
     public void mostrarProduto(Produto p) {
